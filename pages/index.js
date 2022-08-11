@@ -91,11 +91,13 @@ export default function Home() {
             </Button>
       </Drawer>
 
-      {catalogue && (<Catalogue/>)}
-      {employees && (<Employees/>)}
-      {inventory && (<Inventory/>)}
-      {orders && (<Orders/>)}
-      {billing && (<Billing/>)}
+      <Container>
+        {catalogue && (<Catalogue/>)}
+        {employees && (<Employees/>)}
+        {inventory && (<Inventory/>)}
+        {orders && (<Orders/>)}
+        {billing && (<Billing/>)}
+      </Container>
 
     </Container>
   )
