@@ -51,13 +51,13 @@ const Billing = () => {
             method: 'POST',
             body: JSON.stringify({
                 item: dish_names,
-                amount_paid,
-                amount_returned,
-                amount_total,
-                customer_ID,
+                payment_paid: amount_paid,
+                payment_returned: amount_returned,
+                payment_total: amount_total,
+                customer_id: customer_ID,
                 bill_id: billing_Id,
-                time,
-                date
+                _time: time,
+                _date: date
             }),
             headers:{
                 'Content-Type':'application/json'
