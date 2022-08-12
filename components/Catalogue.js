@@ -103,7 +103,7 @@ const Catalogue = () => {
     const catalogueDeleteHandler = (e) =>{
         e.preventDefault()
 
-        const id =  e.target.getAttribute('dishName');
+        const id =  e.target.getAttribute('dishname');
 
         sendDelete(id)
     }
@@ -123,7 +123,7 @@ const Catalogue = () => {
                          <Typography key={index}>
                             {value.dish_name},{value.category},{value.genre},{value.quantity},{value.price}
                         </Typography>
-                        <button onClick={catalogueDeleteHandler} dishName = {value.dish_name} >delete</button>
+                        <button onClick={catalogueDeleteHandler} dishname = {value.dish_name} >delete</button>
                     </Container>
                 ))
             }
