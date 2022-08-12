@@ -44,7 +44,7 @@ const Billing = () => {
     const sendReq = async () =>{
 
         const time = new Date().toLocaleTimeString();
-        const date = new Date().toLocaleDateString();
+        const date = new Date().toLocaleDateString().split("/").reverse().join("-");
         const billing_Id = Math.floor(Math.random()* 100000);
         
         const response = await fetch('http://localhost:3001/api/bill',{
