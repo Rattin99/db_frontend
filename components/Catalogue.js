@@ -84,6 +84,30 @@ const Catalogue = () => {
        router.reload(window.location.pathname)
     }
 
+    sendDelete = async (id) =>{
+        const response = await fetch('http://localhost:3001/delete/catalogue',{
+            method:'DELETE',
+            body:JSON.stringify({
+                dishName:id
+            }),
+            headers:{
+                'Content-Type':'application/json'
+            }
+        })
+
+        const res = await response.json()
+
+        console.log(res)
+    }
+
+    const catalogueDeleteHandler = (e) =>{
+        e.preventDefault()
+
+        const id =  e.target.getAttribute('dishName');
+
+        
+    }
+
 
     useEffect(() =>{
         getCatalogue();
@@ -94,9 +118,13 @@ const Catalogue = () => {
             <Typography>Our Catalogue</Typography>
             {
                 data.map((value,index) =>(
-                    <Typography key={index}>
-                        {value.dish_name},{value.category},{value.genre},{value.quantity},{value.price}
-                    </Typography>
+                   
+                    <Container key={index}>
+                         <Typography key={index}>
+                            {value.dish_name},{value.category},{value.genre},{value.quantity},{value.price}
+                        </Typography>
+                        <button onClick={catalogueDeleteHandler} dishName = {value.dish_name} >delete</button>
+                    </Container>
                 ))
             }
 
