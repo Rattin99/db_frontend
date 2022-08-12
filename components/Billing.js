@@ -47,7 +47,7 @@ const Billing = () => {
         const date = new Date().toLocaleDateString();
         const billing_Id = Math.floor(Math.random()* 100000);
         
-        const response = await fetch('http://localhost:3001/api/billing',{
+        const response = await fetch('http://localhost:3001/api/bill',{
             method: 'POST',
             body: JSON.stringify({
                 item: dish_names,
