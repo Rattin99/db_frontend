@@ -13,6 +13,7 @@ const Catalogue = () => {
     const [quantity,setQuantity] = useState("")
     const [price,setPrice] = useState("")
     const [availablity,setAvailiblity] = useState("")
+    const [ingredients,setIngredients] = useState([])
 
     const router = useRouter()
 
@@ -46,6 +47,10 @@ const Catalogue = () => {
     const availibilityChangeHandler = (e) =>{
         setAvailiblity(e.target.value)
     }
+    const ingredientsChangeHandler = (e) => {
+        const ingr = e.target.value.split(",")
+        setIngredients(ingr)
+    }
 
     const sendReq = async () =>{
         const response = await fetch('http://localhost:3001/api/catalogue',{
@@ -56,7 +61,8 @@ const Catalogue = () => {
                 quantity,
                 genre,
                 category,
-                cook_item: '3'
+                cook_item: '3',
+                ingredients
             }),
             headers:{
                 'Content-Type':'application/json'
@@ -119,6 +125,8 @@ const Catalogue = () => {
                     <TextField onChange={quantityChangeHandler} label= 'Quantity' required />
                     <TextField onChange={priceChangeHandler} label= 'price' required />
                     <TextField onChange={availibilityChangeHandler} label= 'Availablity' required />
+                    <TextField onChange={ingredientsChangeHandler} label= 'Ingredients' required />
+                    
                     <Button type="submit" color="primary" variant="contained" >
                         done
                     </Button>
