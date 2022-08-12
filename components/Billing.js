@@ -55,7 +55,7 @@ const Billing = () => {
                 amount_returned,
                 amount_total,
                 customer_ID,
-                bill_Id,
+                bill_id: billing_Id,
                 time,
                 date
             }),
