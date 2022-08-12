@@ -40,6 +40,11 @@ const Billing = () => {
     }
 
     const sendReq = async () =>{
+
+        const time = new Date().toLocaleTimeString();
+        const date = new Date().toLocaleDateString();
+        const billing_Id = Math.floor(Math.random()* 100000);
+        
         const response = await fetch('http://localhost:3001/api/billing',{
             method: 'POST',
             body: JSON.stringify({
@@ -47,7 +52,10 @@ const Billing = () => {
                 amount_paid,
                 amount_returned,
                 amount_total,
-                customer_ID
+                customer_ID,
+                billing_Id,
+                time,
+                date
             }),
             headers:{
                 'Content-Type':'application/json'
