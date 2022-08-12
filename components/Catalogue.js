@@ -105,7 +105,7 @@ const Catalogue = () => {
 
         const id =  e.target.getAttribute('dishName');
 
-        
+        sendDelete(id)
     }
 
 
