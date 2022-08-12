@@ -84,7 +84,7 @@ const Catalogue = () => {
        router.reload(window.location.pathname)
     }
 
-    sendDelete = async (id) =>{
+   const  sendDelete = async (id) =>{
         const response = await fetch('http://localhost:3001/delete/catalogue',{
             method:'DELETE',
             body:JSON.stringify({
