@@ -97,7 +97,7 @@ const Catalogue = () => {
 
         const res = await response.json()
 
-        console.log(res)
+       
     }
 
     const catalogueDeleteHandler = (e) =>{
@@ -106,6 +106,9 @@ const Catalogue = () => {
         const id =  e.target.getAttribute('dishname');
 
         sendDelete(id)
+
+        router.reload(window.location.pathname)
+
     }
 
 
