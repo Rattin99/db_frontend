@@ -21,7 +21,9 @@ const Billing = () => {
     const dishaAddHandler = (e) =>{
         e.preventDefault()
 
-        setDish_names([dish_name,...dish_names])
+        
+        setDish_names( state => [...state,dish_name])
+        console.log(dish_names)
         setDish_name([]);
         
     }
@@ -48,7 +50,7 @@ const Billing = () => {
         const response = await fetch('http://localhost:3001/api/billing',{
             method: 'POST',
             body: JSON.stringify({
-                dish_names,
+                item: dish_names,
                 amount_paid,
                 amount_returned,
                 amount_total,
@@ -73,7 +75,8 @@ const Billing = () => {
         setDish_names([])
         setDish_name(" ")
 
-        console.log(dish_names,
+        console.log(
+            dish_names,
             amount_paid,
             amount_returned,
             amount_total,
