@@ -62,7 +62,8 @@ const Catalogue = () => {
                 genre,
                 category,
                 cook_item: '3',
-                ingredients
+                ingredients,
+                availablity
             }),
             headers:{
                 'Content-Type':'application/json'
